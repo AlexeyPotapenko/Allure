@@ -1,6 +1,7 @@
 package data;
 
 import com.github.javafaker.Faker;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -16,12 +17,16 @@ public class DataGenerator {
     }
 
     public static String generateCity(String locale) {
+        String[] cities = new String[]{"Киров", "Иваново", "Волгоград", "Брянск", "Астрахань"};
+        int n = (int)Math.floor(Math.random() * cities.length);
 
-        return faker.address().city();
+        return cities[n];
     }
 
     public static String generateName(String locale) {
-        return faker.name().fullName();
+
+        return faker.name().fullName().replace("ё","е");
+
     }
 
     public static String generatePhone(String locale) {
@@ -30,5 +35,5 @@ public class DataGenerator {
     }
 
 
-    }
+}
 

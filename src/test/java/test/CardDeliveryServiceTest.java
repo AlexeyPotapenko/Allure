@@ -1,19 +1,13 @@
 package test;
-
 import com.codeborne.selenide.Selectors;
 import data.DataGenerator;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Keys;
-
-import static com.codeborne.selenide.Selectors.withText;
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.visible;
-
+import org.openqa.selenium.*;
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
-
 
 public class CardDeliveryServiceTest {
 
