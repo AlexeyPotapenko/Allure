@@ -5,6 +5,7 @@ import data.DataGenerator;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
@@ -34,7 +35,7 @@ public class CardDeliveryServiceTest {
         $("[class='input__control'][placeholder='Дата встречи']").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[class='input__control'][placeholder='Дата встречи']").setValue(DataGenerator.generateDate(5));
         $(Selectors.byText("Запланировать")).click();
-        $("[data-test-id=success-notification]").shouldBe(visible, Duration.ofSeconds(15));
+        $(withText("Необходимо подтверждение")).shouldBe(visible, Duration.ofSeconds(15));
         $(Selectors.byText("Перепланировать")).click();
         $("div.notification__content").shouldBe(exactText("Встреча успешно запланирована на " + DataGenerator.generateDate(5)));
 
