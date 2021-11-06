@@ -30,7 +30,7 @@ public class CardDeliveryServiceTest {
         $("[class='input__control'][name='phone']").setValue(DataGenerator.generatePhone("ru"));
         $("[data-test-id=agreement]").click();
         $(Selectors.byText("Запланировать")).click();
-        $("[data-test-id=success-notification]").shouldBe(visible, Duration.ofSeconds(15));
+        $(withText("Успешно!")).shouldBe(visible);
         $("div.notification__content").shouldBe(exactText("Встреча успешно запланирована на " + DataGenerator.generateDate(3)));
         $("[class='input__control'][placeholder='Дата встречи']").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[class='input__control'][placeholder='Дата встречи']").setValue(DataGenerator.generateDate(5));
